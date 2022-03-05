@@ -4,16 +4,11 @@ from selenium import webdriver
 
 
 class LoginPage(BasePage):
-    def should_be_login_page(self):
-        self.should_be_login_url()
-        self.should_be_login_form()
-        self.should_be_register_form()
 
     def should_be_login_url(self):
         # реализуйте проверку на корректный url адрес
-        assert self.is_element_present(*LoginPageLocators.LOGIN_URL), "Login URL is not presented"
-        #driver.current_url()
-        print(self.browser.current_url())
+        link = self.url
+        assert "login" in link, "Not correct URL link observed."
 
     def should_be_login_form(self):
         # реализуйте проверку, что есть форма логина
